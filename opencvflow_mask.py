@@ -1,6 +1,11 @@
 import cv2
 import numpy as np
-cap = cv2.VideoCapture("yourvideo.avi")
+
+# add your video absolute path
+pathv = 'C:\\your path\\v_GolfSwing_g17_c05.avi'
+
+#or you can just ./v_GolfSwing_g17_c05.avi,but may report an error when you run the program
+cap = cv2.VideoCapture(pathv)
 ret, frame1 = cap.read()
 prvs = cv2.cvtColor(frame1,cv2.COLOR_BGR2GRAY)
 hsv = np.zeros_like(frame1)
