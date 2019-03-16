@@ -1,18 +1,6 @@
 
 #encoding:utf-8
-'''
-Lucas-Kanade tracker
-====================
-Lucas-Kanade sparse optical flow demo. Uses goodFeaturesToTrack
-for track initialization and back-tracking for match verification
-between frames.
-Usage
------
-lk_track.py [<video_source>]
-Keys
-----
-ESC - exit
-'''
+
  
 import numpy as np
 import cv2
@@ -82,7 +70,7 @@ class App:
             if ch == 27:
                 break
 
-pathv = 'C:\\Users\\Surface\\OneDrive\\home\\Study\\coding\\Machine_learning\\Computer_vision\\论文代码\\OpenCV光流法\\v_GolfSwing_g17_c05.avi'
+pathv = 'C:\\your_path\\your_video.avi'
 
 def main():
     import sys
