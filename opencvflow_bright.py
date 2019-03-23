@@ -22,20 +22,15 @@ hsv = np.zeros_like(frame1)
 # while(1):
 while cap.isOpened():
     ret, frame2 = cap.read()
-    # print (frame2)
     next = cv2.cvtColor(frame2,cv2.COLOR_BGR2GRAY)
     flow = cv2.calcOpticalFlowFarneback(prvs,next, None, 0.5, 3, 15, 3, 5, 1.2, 0)  #need to try
-    # mag, ang = cv2.cartToPolar(flow[...,0], flow[...,1])
     mag, ang = cv2.cartToPolar(flow[...,0], flow[...,1])
     hsv[...,0] = ang*180/np.pi/2
     #  brief Normalizes the norm or value range of an array
     # norm_type = cv2.NORM_MINMAX, 即将值标准化到(0, 255)
     hsv[..., 1] = cv2.normalize(mag, None, 0, 255, cv2.NORM_MINMAX)
-    
     # 亮度为255
     hsv[..., 2] = 255
-
-    # hsv[...,2] = cv2.normalize(mag,None,0,255,cv2.NORM_MINMAX)
     rgb = cv2.cvtColor(hsv,cv2.COLOR_HSV2BGR)
     cv2.imshow('frame2',rgb)
     k = cv2.waitKey(30) & 0xff
@@ -43,7 +38,6 @@ while cap.isOpened():
     # if k == ord('q'):
         break
     elif k == ord('s'):
-        # print ("i am in")
         cv2.imwrite('opticalfb.png',frame2)
         cv2.imwrite('opticalhsv.png',rgb)
     prvs = next
