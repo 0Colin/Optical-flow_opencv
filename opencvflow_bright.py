@@ -38,8 +38,8 @@ while cap.isOpened():
     # if k == ord('q'):
         break
     elif k == ord('s'):
-        cv2.imwrite('opticalfb.png',frame2)
-        cv2.imwrite('opticalhsv.png',rgb)
+        cv2.imwrite('optical_ori.png',frame2)
+        cv2.imwrite('optical_hsv.png',rgb)
     prvs = next
 
 cap.release()
